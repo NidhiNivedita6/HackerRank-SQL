@@ -1,0 +1,5 @@
+// MySQL
+
+select if(grade < 8, NULL, name), grade, marks from students as s join grades as g
+where s.marks between g.min_mark and g.max_mark
+order by grade desc, name;
