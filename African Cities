@@ -1,0 +1,5 @@
+// MySQL Solution
+
+select distinct city.name from city, country
+where city.countrycode = country.code 
+and country.continent = 'Africa';
