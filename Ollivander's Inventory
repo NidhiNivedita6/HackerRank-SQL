@@ -1,0 +1,14 @@
+// MySQL Solution
+
+select w.id, wa.age, w.coins_needed, w.power
+from wands w, wands_property wa
+where w.code = wa.code and wa.is_evil = 0
+and w.coins_needed in (
+select min(coins_needed)
+    from wands a, wands_property b
+    where a.code = b.code
+    and a.code = w.code
+    and b.age = wa.age
+    and a.power = w.power
+    )
+order by w.power desc, wa.age desc;   
